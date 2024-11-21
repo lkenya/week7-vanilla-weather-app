@@ -26,7 +26,7 @@ header {
   border: none;
   color: rgba(39, 33, 66, 0.4);
   font-size: 16px;
-  padding: 20px;
+  padding: 15px 20px;
   width: 75%;
   border-radius: 6px;
 }
@@ -37,7 +37,7 @@ header {
   background-color: #885df1;
   color: white;
   border: none;
-  padding: 20px;
+  padding: 15px 30px;
   line-height: 1;
   border-radius: 5px;
 }
@@ -50,7 +50,7 @@ main {
   font-size: 48px;
 }
 
-.current-weather {
+.current-weather-data {
   display: flex;
   justify-content: space-between;
 }
@@ -92,7 +92,8 @@ main {
 footer {
   border-top: 1px solid #f9f7fe;
   text-align: center;
-  padding-top: 15px;
+  padding: 30px 0 0 0;
   color: rgba(39, 33, 66, 0.4);
   font-size: 14px;
+  padding:20px 0 0 0;
 }

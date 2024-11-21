@@ -13,20 +13,23 @@ function displayWeather(response) {
   temperatureElement.innerHTML = temperature;
   timeElement.innerHTML = formatDate(currentDate);
   descriptionElement.innerHTML = response.data.condition.description;
-  humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
-  windElement.innerHTML = `${response.data.wind.speed}km/h`;
+  humidityElement.innerHTML = `Humidity: ${response.data.temperature.humidity}%`;
+  windElement.innerHTML = `Wind: ${response.data.wind.speed}km/h`;
   iconElement.innerHTML = `
     <img src="${response.data.condition.icon_url}" class="current-temperature-icon" />
   `;
 }
 
-function search(event) {
-  event.preventDefault();
-  let searchInputElement = document.querySelector("#search-input");
-  let city = searchInputElement.value;
+function searchWeatherCity(city) {
   let apiKey = "b2a5adcct04b33178913oc335f405433";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeather);
+}
+
+function handleSearchSubmit(event) {
+  event.preventDefault();
+  let searchInputElement = document.querySelector("#search-input");
+  searchWeatherCity(searchInputElement.value);
 }
 
 function formatDate(date) {
@@ -57,4 +60,5 @@ function formatDate(date) {
 }
 
 let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", search);
+searchForm.addEventListener("submit", handleSearchSubmit);
+searchWeatherCity("Harare");
