@@ -13,8 +13,8 @@ function displayWeather(response) {
   temperatureElement.innerHTML = temperature;
   timeElement.innerHTML = formatDate(currentDate);
   descriptionElement.innerHTML = response.data.condition.description;
-  humidityElement.innerHTML = `Humidity: ${response.data.temperature.humidity}%`;
-  windElement.innerHTML = `Wind: ${response.data.wind.speed}km/h`;
+  humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
+  windElement.innerHTML = `${response.data.wind.speed}km/h`;
   iconElement.innerHTML = `
     <img src="${response.data.condition.icon_url}" class="current-temperature-icon" />
   `;
