@@ -3,11 +3,21 @@ function displayWeather(response) {
   let temperature = Math.round(response.data.temperature.current);
   let cityElement = document.querySelector("#current-city");
   let currentDate = new Date(response.data.time * 1000);
+  let descriptionElement = document.querySelector("#weather-description");
   let timeElement = document.querySelector("#current-date");
-  let humidityElement = document.querySelector("");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind-speed");
+  let iconElement = document.querySelector("#icon");
+
   cityElement.innerHTML = response.data.city;
   temperatureElement.innerHTML = temperature;
   timeElement.innerHTML = formatDate(currentDate);
+  descriptionElement.innerHTML = response.data.condition.description;
+  humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
+  windElement.innerHTML = `${response.data.wind.speed}km/h`;
+  iconElement.innerHTML = `
+    <img src="${response.data.condition.icon_url}" class="current-temperature-icon" />
+  `;
 }
 
 function search(event) {
